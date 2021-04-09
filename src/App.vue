@@ -5,7 +5,9 @@
    <!-- when new-student occurs newStudent is called-->
    <new-student-form v-on:student-added="newStudentAdded"></new-student-form>
    <!-- binds with students from StudentTable-->
-   <student-table v-bind:students="students" v-on:student-arrived-or-left="studentArrivedOrLeft" v-on:delete-student="DeleteStudent"></student-table>
+   <student-table v-bind:students="students" v-on:student-arrived-or-left="studentArrivedOrLeft" 
+   v-on:delete-student="studentDeleted">
+   </student-table>
   <!-- student is prop in student message-->
    <student-message v-bind:student="mostRecentStudent"></student-message> 
 
@@ -55,7 +57,7 @@ export default {
         this.mostRecentStudent = updateStudent
       }
     },
-    deleteStudent(student){
+    studentDeleted(student){
       // filter checks every student in array if student matches a condition they will be kept
       //if student doesn't match condition they will be filtered out, removed from array
       // filter returns a new array of elements that return true
@@ -65,6 +67,7 @@ export default {
           return true
         }
       })
+      this.mostRecentStudent = {}
     }
   }
 }
@@ -74,3 +77,4 @@ export default {
 @import "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css";
 
 </style>
+<!-- would you rather question: 

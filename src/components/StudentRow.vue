@@ -26,7 +26,9 @@ methods: {
         this.$emit('student-arrived-or-left', student, present)
     },
     deleteStudent(){
-        this.$emit('delete-Student', this.student)
+        if (confirm(`delete ${this.student.name}?`)){
+        this.$emit('delete-student', this.student)
+        }
     }
 }
 }
@@ -42,6 +44,9 @@ font-weight: italic;
 .absent{
   color: black;
   font-weight: bold;
+}
+img{
+    height: 10px;
 }
 
 </style>

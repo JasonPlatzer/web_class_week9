@@ -17,8 +17,10 @@
                     </tr>
 
                     <!-- student from props is bound to student in v-for--><!-- v-on sends event data to App.vue to update--> 
-                     <student-row v-for='student in students' v-bind:student="student" v-bind:key="student.starID" 
-                     v-on:student-arrived-or-left="arrivedOrLeft" v-on:delete-student="deleteStudent"
+                     <student-row v-for='student in students' v-bind:student="student" 
+                     v-bind:key="student.starID" 
+                     v-on:student-arrived-or-left="arrivedOrLeft" 
+                     v-on:delete-student="deleteStudent"
                      v-bind:edit="editTable">
                      </student-row>
                 </table>
